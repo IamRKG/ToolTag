@@ -1,0 +1,161 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            ng-click="toolLocationModalInstanceController.reject()">&times;</button>
+    <h1 class="modal-title" tabindex="-1"><!--{{'orderToolTag.address.toolLocation.title' | translate}}--> Edit Delivery
+        Address</h1>
+</div>
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="tag-well">
+                <p class="bg-info"
+                   ng-repeat="fordAssetNumber in toolLocationModalInstanceController.selectedAddress">
+                    {{fordAssetNumber.fordToolingAssetNumber}}&#44;
+                    {{fordAssetNumber.toolTagShippingLocation.street}}
+                    {{fordAssetNumber.toolTagShippingLocation.city}}
+                    {{fordAssetNumber.toolTagShippingLocation.country}}
+                    {{fordAssetNumber.toolTagShippingLocation.state}}
+                    {{fordAssetNumber.toolTagShippingLocation.postalCode}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <form class="well" role="form" name="toolLocationModalInstanceController.toolLocationForm" novalidate>
+        <div class="required-legend">
+        <span class="required-text">
+            <abbr class="required h6" title="Required">*</abbr> indicates required fields
+        </span>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group" ng-class="{'has-error':toolLocationModalInstanceController.isFormSubmitted && toolLocationModalInstanceController.toolLocationForm.name.$invalid}">
+                    <label for="name" class="control-label"><abbr class="required h6" title="Required">*</abbr>
+                        Contact Name</label>
+                    <input type="text" class="form-control" required maxlength="30" ng-model-options="{ updateOn: 'default'}"
+                           ng-model="toolLocationModalInstanceController.address.toolTagShippingLocation.name"
+                           id="name"
+                           name="name"
+                           />
+                        <span ng-show="toolLocationModalInstanceController.isFormSubmitted && toolLocationModalInstanceController.toolLocationForm.name.$invalid"
+                              class="label label-danger">
+            <span class="glyphicon glyphicon-remove-circle"></span>
+            <span class="label-text">Name is required</span>
+    </span>
+                </div>
+                <div class="form-group" ng-class="{'has-error':toolLocationModalInstanceController.isFormSubmitted && toolLocationModalInstanceController.toolLocationForm.street.$invalid}">
+                    <label for="street" class="control-label"><abbr
+                            class="required h6" title="Required">*</abbr>
+                        <!--{{'orderToolTag.address.street' | translate}}--> Street</label>
+                    <input type="text" class="form-control" maxlength="32" ng-model-options="{ updateOn: 'default'}"
+                           ng-model="toolLocationModalInstanceController.address.toolTagShippingLocation.street"
+                           id="street"
+                           name="street"
+                           required/>
+                <span ng-show="toolLocationModalInstanceController.isFormSubmitted && toolLocationModalInstanceController.toolLocationForm.street.$invalid"
+                      class="label label-danger">
+            <span class="glyphicon glyphicon-remove-circle"></span>
+            <span class="label-text">Street is required</span>
+    </span>
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <div class="form-group" ng-class="{'has-error':toolLocationModalInstanceController.isFormSubmitted && toolLocationModalInstanceController.toolLocationForm.country.$invalid}">
+                    <label for="country" class="control-label"><abbr
+                            class="required h6" title="Required">*</abbr>
+                        <!--{{'orderToolTag.address.country' | translate}}--> Country</label>
+
+                    <select class="form-control" ng-change="toolLocationModalInstanceController.retrieveStates()" ng-model-options="{ updateOn: 'default'}"
+                            ng-model="toolLocationModalInstanceController.address.toolTagShippingLocation.country"
+                            ng-options="c.code as c.description for c in toolLocationModalInstanceController.countries"
+                            id="country"
+                            name="country"
+                            required></select>
+                <span ng-show="toolLocationModalInstanceController.isFormSubmitted && toolLocationModalInstanceController.toolLocationForm.country.$invalid"
+                      class="label label-danger">
+            <span class="glyphicon glyphicon-remove-circle"></span>
+            <span class="label-text">Country is required</span>
+    </span>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="form-group" ng-class="{'has-error':toolLocationModalInstanceController.isFormSubmitted && toolLocationModalInstanceController.toolLocationForm.city.$invalid}">
+                    <label for="city" class="control-label"><abbr
+                            class="required h6" title="Required">*</abbr>
+                        <!--{{'orderToolTag.address.city' | translate}}--> City/Town</label>
+
+                    <input type="text" class="form-control" maxlength="32" ng-model-options="{ updateOn: 'default'}"
+                           ng-model="toolLocationModalInstanceController.address.toolTagShippingLocation.city" id="city"
+                           name="city"
+                           required/>
+                <span ng-show="toolLocationModalInstanceController.isFormSubmitted && toolLocationModalInstanceController.toolLocationForm.city.$invalid"
+                      class="label label-danger">
+            <span class="glyphicon glyphicon-remove-circle"></span>
+            <span class="label-text">City/Town is required</span>
+    </span>
+                </div>
+            </div>
+
+            <div class="col-xs-6">
+                <div class="form-group" ng-class="{'has-error':toolLocationModalInstanceController.isFormSubmitted && toolLocationModalInstanceController.toolLocationForm.state.$invalid}">
+                    <label for="state" class="control-label"><abbr
+                            class="required h6" title="Required">*</abbr>
+                        <!--{{'orderToolTag.address.state' | translate}}--> State</label>
+
+                    <select type="text" class="form-control" ng-model-options="{ updateOn: 'default'}"
+                            ng-options="s.code as s.description for s in toolLocationModalInstanceController.states"
+                            ng-model="toolLocationModalInstanceController.address.toolTagShippingLocation.state"
+                            id="state"
+                            name="state"
+
+                            required></select>
+                <span ng-show="toolLocationModalInstanceController.isFormSubmitted && toolLocationModalInstanceController.toolLocationForm.state.$invalid"
+                      class="label label-danger">
+            <span class="glyphicon glyphicon-remove-circle"></span>
+            <span class="label-text">State is required</span>
+    </span>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group" ng-class="{'has-error':toolLocationModalInstanceController.isFormSubmitted && toolLocationModalInstanceController.toolLocationForm.postalCode.$invalid}">
+                    <label for="postalCode" class="control-label"> Postal Code</label>
+
+                   <!--  <input type="text" class="form-control" maxlength="9" ng-pattern="/^[0-9]+(?:\.[0-9]+)?$/" ng-model-options="{ updateOn: 'default'}"
+                           ng-model="toolLocationModalInstanceController.address.toolTagShippingLocation.postalCode"
+                           id="postalCode" name="postalCode"
+                           required/> -->
+                           
+                    <input type="text" class="form-control" maxlength="9" ng-model-options="{ updateOn: 'default'}"
+                           ng-model="toolLocationModalInstanceController.address.toolTagShippingLocation.postalCode"
+                           id="postalCode" name="postalCode"/>
+                           
+                   <!--  <span ng-show="toolLocationModalInstanceController.isFormSubmitted && toolLocationModalInstanceController.toolLocationForm.postalCode.$invalid">
+                <span ng-show="toolLocationModalInstanceController.toolLocationForm.postalCode.$error.required"
+                      class="label label-danger">
+            <span class="glyphicon glyphicon-remove-circle"></span>
+            <span class="label-text">Postal Code is required</span>
+    </span>
+                        </span> -->
+                       <!-- <span ng-show="toolLocationModalInstanceController.toolLocationForm.postalCode.$error.pattern"
+                             class="label label-danger">
+            <span class="glyphicon glyphicon-remove-circle"></span>
+            <span class="label-text">Enter numeric value</span>
+    </span> -->
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+    <div class="row form-actions text-center">
+        <button id="modal-cancel" type="button" class="btn btn-secondary"
+                ng-click="toolLocationModalInstanceController.reject()"><!--{{'actions.cancel' | translate}}--> Cancel
+        </button>
+        <button id="modal-submit" type="submit" class="btn btn-primary-default"
+                ng-click="toolLocationModalInstanceController.resolve()"><!--{{'actions.save' | translate}}--> Save
+        </button>
+    </div>
+</div>

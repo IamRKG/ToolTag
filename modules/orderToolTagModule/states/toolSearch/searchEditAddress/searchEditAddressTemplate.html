@@ -1,0 +1,194 @@
+<!-- <div class="row ng-scope"><a onclick="history.back();" class="pull-left"><i class="glyphicon glyphicon-arrow-left" style="font-size: 20px;"></i></a></div>
+ --><form name="searchEditAddressController.editForm" novalidate>
+    <div class="form-group">
+                <span ng-show="searchEditAddressController.editForm.$invalid"
+                      class="label label-danger error-block-danger">
+                    <span>
+                        <span class="glyphicon glyphicon-remove-circle"></span>
+                        <span class="label-text" style="white-space: initial !important; font-weight: 600;">Please fill mandatory delivery address fields for all assets</span>
+                        </span>
+                </span>
+    </div>
+<div class="form-group">
+                <span ng-show="searchEditAddressController.isSelectOne"
+                      class="label label-danger error-block-danger">
+                    <span>
+                        <span class="glyphicon glyphicon-remove-circle"></span><span
+                            class="label-text">Make a selection</span>
+                        </span>
+                </span>
+</div>
+<h2><!--{{'orderToolTag.address.title' | translate}}--> Tag Delivery Address</h2>
+<div class="well">
+    <div class="tool-summary">
+        <div class="row">
+            <div class="col-xs-6">
+                <div>
+                    <div><!--{{'orderToolTag.searchList.toolOrderNo' | translate}}--> Tool Order #:</div>
+                    <div>{{searchEditAddressController.selectedFordToolingAssetNumber[0].toolOrderNumber}}</div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div>
+                    <div><!--{{'orderToolTag.searchList.endItemPartNumber' | translate}}--> End Item Part #:</div>
+                    <div>{{searchEditAddressController.selectedFordToolingAssetNumber[0].endItemPartNumber}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <div class="button-sticky">
+        <div class="row">
+            <div class="col-xs-12">
+                <button type="button" class="col-xs-3 btn btn-sm btn-default"
+                        ng-click="searchEditAddressController.selectAll()">
+                    <!--{{'orderToolTag.searchList.buttons.selectAll'|translate}}-->
+                    Select All
+                </button>
+                <button type="button" class="col-xs-4 btn btn-sm btn-default"
+                        ng-click="searchEditAddressController.selectNone()">
+                    <!--{{'orderToolTag.searchList.buttons.selectNone'|translate}}-->
+                    Select None
+                </button>
+                <button type="button" class="col-xs-5 btn btn-sm btn-default"
+                        ng-click="searchEditAddressController.viewTagSamples()">
+                    <!--{{'orderToolTag.searchList.buttons.selectNone'|translate}}-->
+                   View Tag Samples
+                </button>
+            </div>
+        </div>
+    </div>
+    
+        <div class="row" style="font-size: 13px; padding-top: 15px;">
+        <div class="col-xs-7" style="padding-right: 0px;padding-left: 20px;">
+            <div>
+                Select Tag size for all assets: 
+            </div>
+        </div>
+        
+         <div class="col-xs-5" style="padding-left: 0px;margin: 0px;">
+            <div class="form-group">
+                <select ng-change="searchEditAddressController.selectAllTagSize(searchEditAddressController.selectedTagSize)" ng-model="searchEditAddressController.selectedTagSize" class="form-control" style="height: 25px;">
+                <option " selected value="">-Select Tag Size-</option>
+                  <option value="2x4">2x4 inch</option>
+                <option value="0.5x1">0.5x1 inch </option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default" ng-model-options="{ updateOn: 'default'}" ng-model="searchEditAddressController.editAddressSection" ng-repeat="result in searchEditAddressController.selectedFordToolingAssetNumber"
+         ng-class="{'panel-error':searchEditAddressController.isFormSubmitted && result.toolTagShippingLocation.name == searchEditAddressController.EnumNulltoolTagShippingLocation.name ||
+            result.toolTagShippingLocation.street == searchEditAddressController.EnumNulltoolTagShippingLocation.street ||
+            result.toolTagShippingLocation.city == searchEditAddressController.EnumNulltoolTagShippingLocation.city ||
+            result.toolTagShippingLocation.country == searchEditAddressController.EnumNulltoolTagShippingLocation.country ||
+            result.toolTagShippingLocation.state == searchEditAddressController.EnumNulltoolTagShippingLocation.state ||
+            result.toolTagShippingLocation.name == searchEditAddressController.EnumEmptytoolTagShippingLocation.name ||
+            result.toolTagShippingLocation.street == searchEditAddressController.EnumEmptytoolTagShippingLocation.street ||
+            result.toolTagShippingLocation.city == searchEditAddressController.EnumEmptytoolTagShippingLocation.city ||
+            result.toolTagShippingLocation.country == searchEditAddressController.EnumEmptytoolTagShippingLocation.country ||
+            result.toolTagShippingLocation.state == searchEditAddressController.EnumEmptytoolTagShippingLocation.state }"
+         ng-required="result.toolTagShippingLocation.name == searchEditAddressController.EnumNulltoolTagShippingLocation.name ||
+            result.toolTagShippingLocation.street == searchEditAddressController.EnumNulltoolTagShippingLocation.street ||
+            result.toolTagShippingLocation.city == searchEditAddressController.EnumNulltoolTagShippingLocation.city ||
+            result.toolTagShippingLocation.country == searchEditAddressController.EnumNulltoolTagShippingLocation.country ||
+            result.toolTagShippingLocation.state == searchEditAddressController.EnumNulltoolTagShippingLocation.state ||
+            result.toolTagShippingLocation.name == searchEditAddressController.EnumEmptytoolTagShippingLocation.name ||
+            result.toolTagShippingLocation.street == searchEditAddressController.EnumEmptytoolTagShippingLocation.street ||
+            result.toolTagShippingLocation.city == searchEditAddressController.EnumEmptytoolTagShippingLocation.city ||
+            result.toolTagShippingLocation.country == searchEditAddressController.EnumEmptytoolTagShippingLocation.country ||
+            result.toolTagShippingLocation.state == searchEditAddressController.EnumEmptytoolTagShippingLocation.state ">
+        <div class="panel-heading" style="height: 38px;">
+
+            <h3 class="panel-title row">
+            <span class="col-xs-12">
+            
+            		<tr>
+            			<td>
+            			<input type="checkbox"   id="{{result.fordToolingAssetNumber}}" ng-checked="searchEditAddressController.checkedAll;"
+                      ng-click="searchEditAddressController.selectedFordAssetNumber(result.fordToolingAssetNumber);" ng-disabled="result.toolTagReOrderCount >= 6"></td>
+            			<td> {{result.fordToolingAssetNumber}}</td>
+            			<td>                			
+            			<!-- <a href="javascript:void(0)" >
+		                		<img class="imgsize pull-right" popover-placement="left" popover-trigger="'outsideClick'" uib-popover="{{searchEditAddressController.viewMessage(result.toolTagReOrderCount)}}" ng-src="toolTagApp/assets/image/completeIcon.png" ng-if="result.toolTagReOrderCount > 1 && result.toolTagReOrderCount < 4" />
+		                		<img class="imgsize pull-right" popover-placement="left" popover-trigger="'outsideClick'" uib-popover="{{searchEditAddressController.viewMessage(result.toolTagReOrderCount)}}" ng-src="toolTagApp/assets/image/alert_icon.png" ng-if="result.toolTagReOrderCount >= 4 &&  result.toolTagReOrderCount < 6"  />
+		                		<img class="imgsize pull-right" popover-placement="left" popover-trigger="'outsideClick'" uib-popover="{{searchEditAddressController.viewMessage(result.toolTagReOrderCount)}}" ng-src="toolTagApp/assets/image/incomplete.png" ng-if="result.toolTagReOrderCount >= 6"   />
+	                		</a> -->
+	                		<a href="javascript:void(0)" class="imgsize pull-right"   toolpopover="{{searchEditAddressController.viewMessage(result.toolTagReOrderCount)}}" ng-if="result.toolTagReOrderCount >= 1 && result.toolTagReOrderCount < 4">
+		                		<img  ng-src="toolTagApp/assets/image/completeIcon.png"  align="right" />
+	                	   </a>
+	                	   <a href="javascript:void(0)" class="imgsize pull-right"  ng-if="result.toolTagReOrderCount >= 4 &&  result.toolTagReOrderCount < 6"  toolpopover="{{searchEditAddressController.viewMessage(result.toolTagReOrderCount)}}">
+		                		<img ng-src="toolTagApp/assets/image/alert_icon.png" align="right" />
+	                	</a>
+	                	<a href="javascript:void(0)" class="imgsize pull-right"  toolpopover="{{searchEditAddressController.viewMessage(result.toolTagReOrderCount)}}" ng-if="result.toolTagReOrderCount >= 6">
+		                	<img ng-src="toolTagApp/assets/image/incomplete.png" align="right" />
+	                	</a>
+	                	</td>
+            		</tr>
+            	</table>
+            </span>
+            </h3>
+        </div>
+        <div class="panel-body" >
+            <div class="row">
+                <div class="col-xs-12">
+                <div style="font-size: 13px !important;font-weight: 700;word-wrap: break-word;">Tool Type : {{result.shortDesc}} </div>
+                    <div >
+                        <div style="font-size: 13px !important;font-weight: 700;  padding-bottom: 8px;">Current Tag Delivery Address: <a href class="pull-right viewHistory"
+                                                         ng-click="searchEditAddressController.viewHistory(result)">View
+                            History</a></div>
+                    </div>
+                    
+                  </div>
+                  <div  class="row" style="  padding-left: 15px; padding-right: 15px;">
+                   <div class="col-xs-6" style="padding-left: 15px; padding-right: 15px;" font-size: 13px; ">
+                   <div ng-if="result.toolTagShippingLocation">
+                        <div style="word-break: break-word;">{{result.toolTagShippingLocation.name}}</div>
+                        <div style=" word-break: break-word;" >{{result.toolTagShippingLocation.street}}</div>
+                        <!--<div>{{result.toolTagShippingLocation.town}}</div>-->
+                        <div style="word-break: break-word;">{{result.toolTagShippingLocation.city}}</div>
+                        <div style="word-break: break-word;">{{result.toolTagShippingLocation.country}}</div>
+                        <div style="word-break: break-word;">{{result.toolTagShippingLocation.state}}</div>
+                        <div>{{result.toolTagShippingLocation.postalCode}}</div>
+                        </div>
+                         <div class="" ng-if="!(result.toolTagShippingLocation.city && result.toolTagShippingLocation.state && result.toolTagShippingLocation.country)">
+                    <div  style="word-break: break-word; margin-top: 18px; " >
+                   **Complete the delivery address for this asset. Select the asset and choose 'Edit Selected'
+                    </div>
+                        </div>
+                        </div>
+                    <div class="col-xs-6 seltagsize" >
+	<h6 style="font-family: "Trebuchet MS",Arial,Helvetica,sans-serif !important;  style="font-weight: bold;">Select Tag Size: </h6>
+	<div style="background-color: gainsboro; padding: 5px;">
+          
+          <div>
+              <input type="radio" ng-model="result.toolTagSize" value="2x4">2x4 Inch - Metal
+             <!--  <img ng-src="toolTagApp/assets/image/2-4_tag.jpg" style="width: 75%;"/> -->
+          </div>
+          <div>
+              <input type="radio" ng-model="result.toolTagSize" value="0.5x1">0.5x1 Inch - Aluminum Foil<br/>
+             <!--  <img ng-src="toolTagApp/assets/image/0.5-1_tag.jpg" style="width: 50%;"/> -->
+          </div>
+     </div>
+</div>
+</div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-fixed-bottom">
+        <div class="row form-actions">
+                <button id="editSelected" ng-disabled="!(searchEditAddressController.editFordAssetNumber.length > 0)"  type="submit" class="btn btn-primary btn-sm"
+                        ng-click="searchEditAddressController.editSelected()">Edit Selected
+                </button>
+
+                <button id="confirmOrder" type="submit" class="btn btn-primary-default pull-right"
+                        ng-click="searchEditAddressController.confirmOrder()">
+                    <!--{{'actions.confirmOrder' | translate}}--> Confirm
+                </button>
+
+        </div>
+    </div>
+</div>
+</form>

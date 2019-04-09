@@ -1,0 +1,1451 @@
+<head>
+<title>Application User Guide</title>
+<style>
+body {
+	font: 400 15px Lato, sans-serif;
+	line-height: 1.8;
+	color: #818181;
+}
+hr {
+margin-bottom:1px;
+
+}
+h2 {
+	font-size: 24px;
+	text-transform: uppercase;
+	color: #303030;
+	font-weight: 600;
+	margin-bottom: 30px;
+}
+
+h4 {
+	font-size: 19px;
+	line-height: 1.375em;
+	color: #303030;
+	font-weight: 400;
+	margin-bottom: 30px;
+}
+
+.jumbotron {
+	background-color: #01427c;
+	color: #fff;
+	padding: 100px 25px;
+	font-family: Montserrat, sans-serif;
+}
+
+.container-fluid {
+	padding: 60px 50px;
+}
+
+.bg-grey {
+	background-color: #f6f6f6;
+}
+
+.logo-small {
+	color: #f4511e;
+	font-size: 50px;
+}
+.icon-bar{
+background-color: #01427c !important;
+}
+.logo {
+	color: #f4511e;
+	font-size: 200px;
+}
+
+.navbar-default {
+	background-color: #FFFFFF;
+}
+
+.scrollUp {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.6);
+	text-align: center;
+	box-sizing: border-box;
+	padding-top: 1px;
+}
+
+.scrollUp a {
+	color: #FFFFFF;
+}
+
+.divbox {
+	margin-bottom: 20px;
+}
+
+.divbox li {
+	color: #333;
+}
+
+.footer_Right {
+	text-align: right;
+}
+
+.content_h p {
+	color: #333;
+	margin-bottom: 7px;
+	line-height: 13px;
+}
+
+.content_p {
+	
+}
+
+.content_p p {
+	color: #333;
+	line-height: 18px;
+}
+
+@media screen and (max-width: 767px) {
+	h2 {
+		font-size: 20px;
+		margin-bottom: 15px;
+		margin-top: 15px;
+	}
+	h4 {
+		font-size: 15px;
+		line-height: 22px;
+	}
+	.jumbotron {
+		margin-bottom: 0px;
+	}
+	.container-fluid {
+		padding: 30px 15px;
+	}
+	.head_heading2,.head_heading3 {
+		font-size: 14px !important;
+	}
+	.footer_Right {
+		text-align: left;
+	}
+}
+</style>
+</head>
+<body  id="myPage" data-spy="scroll" data-target=".navbar"
+	data-offset="60">
+	
+	<div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" style="top: 0px !important; background-color: #e2e6ea00 !important;"  ng-click="toggleMenuCollpase()" class="navbar-toggle"  data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage"><img src="toolTagApp/assets/images/ford_logo.jpg"></a>
+    </div>
+    <div class="collapse navbar-collapse" uib-collapse="menuCollapsed" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ng-click="submenu = !submenu;">Getting Started<span class="glyphicon pull-right glyphicon-triangle-bottom"></span></a>
+                                    <ul  ng-show="submenu">
+                                        <li style="color: whitesmoke;">
+                                            <a style="color: whitesmoke;" ng-click= "scrollTo('appoverview')">Application Overview</a>
+                                        </li>
+                                        <li style="color: whitesmoke;">
+                                            <a style="color: whitesmoke;" ng-click= "scrollTo('prerequisite')">Prerequisites and Assumptions</a>
+                                        </li>
+                                       <li style="color: whitesmoke;">
+                                            <a style="color: whitesmoke;" ng-click= "scrollTo('intendedusers')">Intended Users</a>
+                                        </li>
+                                    </ul></li>
+       <li><a ng-click="scrollTo('login')">Covisint Login / Logout</a></li>
+         <li><a ng-click="scrollTo('homepage')">Application Home Page</a></li>
+        <li><a ng-click="scrollTo('OrderPage')">Order Tool Tag</a></li>
+        <li><a ng-click="scrollTo('UploadPage')">Upload Tool Photo</a></li>
+        <li><a ng-click="scrollTo('ScanPage')">Scan Tool Tag</a></li>
+        <li><a ng-click="scrollTo('Error')">General Application Errors</a></li>
+  
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+<div   style="margin-top: 46px;">
+<div class=" text-center">
+		<h1>Tool Tagging</h1>
+		<p class="head_heading2">
+			Application User Guide 
+		</p>
+	<!-- 	<p class="head_heading3">
+			<strong>Ford Motor Company &copy; 2018</strong>
+		</p> -->
+	</div>
+
+	<!-- Container (About Section) -->
+	<div id="about" class="container-fluid" style="padding-left: 5px;padding-right: 5px;">
+		<div class="row">
+			<div id="appoverview" class="col-sm-8">
+				<div class="divbox">
+					<h2 >Application Overview</h2>
+					<h4>The Tool Tagging application will facilitate the tracking
+						and maintenance of tool information on real time basis to imply
+						Ford ownership and tag tools with Ford-issued tool tags. As a part
+						of Ford Global Terms and Conditions and the Tooling Purchase and
+						Audit guidelines, production tooling owned by Ford Motor Company
+						and located on the premises of a supplier must be and remain,
+						permanently tagged to reflect Ford's ownership.</h4>
+				</div>
+				<div id="prerequisite" class="divbox">
+					<p class="content_h">
+						<strong><u>Prerequisites & Assumptions</u></strong>
+					</p>
+					<ul>
+						<li>A mobile device with an active mobile data connection to
+							access the Tool Tagging application and use its features.</li>
+						<li>The user should have a valid Covisint ID and access to
+							the Ford Supplier Portal in order to access the Tool Tagging
+							application.</li>
+						<li>The access device should have a working GPS and Camera
+							hardware in order to support the scanning and upload features.</li>
+						<li>The user should be familiar with the camera interface of
+							his/her Android/iOS device.</li>
+						<li>The user should be familiar with modern Android (Chrome)
+							& iOS (Safari) web browsers.</li>
+					</ul>
+				</div>
+				<div id="intendedusers"  class="divbox">
+					<p class="content_h">
+						<strong><u>Intended Users</u></strong>
+					</p>
+					<ul>
+						<li>Ford Suppliers with access to WebQuote.</li>
+						<li>Ford Suppliers identified by Ford Motor Company for using
+							the Tool Tagging application.</li>
+						<li>Ford Suppliers with tool orders raised from WIPS.</li>
+						<li>Ford Suppliers aware of the tool tagging business
+							processes within Ford Motor Company.</li>
+					</ul>
+				</div>
+				<div class="divbox">
+					<p class="content_h">
+						<strong><u>Minimum Device Requirements</u></strong>
+					</p>
+					<div class="row">
+						<div class="col-sm-4">
+							<img src="toolTagApp/assets/images/ios_img.png">
+						</div>
+						<div class="col-sm-8">
+							<p>
+								Operating System: <b>iOS 11.0.1+</b>
+							</p>
+							<p>Supported Web Browsers:</p>
+							<p>
+								Apple Safari - <b>11.1.1+</b>
+							</p>
+							<p>
+								Google Chrome - <b>65.0.3325.152+</b>
+							</p>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-sm-4">
+							<img src="toolTagApp/assets/images/android_img.png">
+						</div>
+						<div class="col-sm-8">
+							<p>
+								Operating System: <b>Android 5.1.1+</b>
+							</p>
+							<p>Supported Web Browsers:</p>
+							<p>
+								Google Chrome - <b>65.0.3325.109+</b>
+							</p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4 hidden-xs">
+				<img src="toolTagApp/assets/images/user_login.png">
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid bg-grey">
+		<div class="row">
+
+			<div class="col-sm-8">
+				<h3
+					style="padding-bottom: 0px; margin-bottom: 0px; line-height: 0px;">Application
+					Workflows</h3>
+				<br>
+				<h2 id="login" style="line-height: 25px; margin-top: 0px;">Covisint Login
+					/ Logout</h2>
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Title:</strong> <a name="covisantLogin">Covisint Login page</a>
+						</p>
+					</div>
+				</div>
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Actions:</strong> Login button to authenticate login
+							credentials and enter Tool Tagging application.
+						</p>
+					</div>
+				</div>
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+							<li>You have entered an invalid password and/or User ID,
+								please try again.</li>
+							<li>Cause: Invalid user ID or password has been entered</li>
+							<li>Solution: Check and re-enter your User ID/password.
+								**They are both case sensitive fields.</li>
+						</ul>
+
+					</div>
+				</div>
+
+
+
+
+			</div>
+			<div class="col-sm-4">
+				<img src="toolTagApp/assets/images/user_login.png">
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-sm-6">
+				<h2 style="line-height: 25px;"><span id="homepage" name="homepage">Application Home Page</span></h2>
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Purpose</strong>
+						</p>
+					</div>
+					<div class="content_p">
+						<p>Provides access to the Tool Tagging web application after
+							authentication via Covisint. Provides buttons to navigate through
+							features and log out of the application.</p>
+					</div>
+				</div>
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Screen Workflow</strong>
+						</p>
+					</div>
+					<div class="content_p">
+						<p>
+							<strong>Title:</strong> App Home page
+						</p>
+					</div>
+				</div>
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>Order Tool Tag button to search for tools and order
+								tags.</li>
+							<li>Upload Tool Photo button to take tool photos and upload
+								them to WebQuote.</li>
+							<li>Scan Tool Tag button to scan tool tags and get
+								additional tool details.</li>
+						</ul>
+
+					</div>
+				</div>
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+							<li>Page not responding
+								<ul>
+									<li>Cause: Page idle for long or slow internet connection.</li>
+									<li>Solution: Refresh page or re-login through Covisint.</li>
+								</ul>
+							</li>
+							<li>Refer to general application errors (Appendix A) for
+								other possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+			</div>
+			<div class="col-sm-6">
+				<img class="img-responsive" src="toolTagApp/assets/images/APPLICATIONHOME.jpg">
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-sm-6">
+				<h2 id="OrderPage" style="line-height: 25px;">Order Tool Tag</h2>
+				<img class="img-responsive" src="toolTagApp/assets/images/tool_tagging1.jpg">
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Purpose</strong>
+						</p>
+					</div>
+					<div class="content_h">
+						<p>
+							<i>Provides features to:</i>
+						</p>
+					</div>
+					<ul>
+						<li>Search for tools using Tool Order numberor Ford Asset
+							Number.</li>
+						<li>Check tool description for the searched tool order number
+							or Ford asset number.</li>
+						<li>Select individual/multiple tools for generating tool
+							tags.</li>
+						<li>Enter and edit tag delivery addresses for
+							one/multiple/all tools.</li>
+						<li>View history of address changes madeduring an activeuser
+							session.</li>
+						<li>View component part numbers of assets while editing Tag
+							Delivery Address.</li>
+						<li>Confirm order for tool tags to Ford Motor Company.</li>
+					</ul>
+				</div>
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/tool_tagging2.jpg"> <label>Screen
+						1</label> <br>
+				</div>
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Title:</strong> Tool Order Search
+						</p>
+					</div>
+				</div>
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>Search button to initiate search for the entered keyword
+								(Tool Order number or Ford Asset Number)</li>
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+							<li>Please enter Tool Order Number / Please enter Ford Asset
+								Number.
+								<ul>
+									<li>Cause: Empty search field.</li>
+									<li>Solution: Enter a valid tool order number/ford asset
+										number to search.</li>
+								</ul>
+							</li>
+							<li>Refer to general application errors (Appendix A) for
+								other possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/tool_tagging3.jpg"> <label>Screen
+						2</label> <br>
+				</div>
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Title:</strong> Tool Order Search Results
+						</p>
+					</div>
+				</div>
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>Search button to initiate search for the entered keyword
+								(Tool Order number or Ford Asset Number)</li>
+							<li>Checkboxesfor selecting assets</li>
+							<li>Select All/Select None button to select assets for which
+								tags are needed</li>
+							<li>Show more/Show less for expanding/collapsing the asset
+								description</li>
+							<li>Order Tag button for proceeding with ordering tags for
+								the selected assets.</li>
+							<li>Tool Tag order/reorder indicators <span
+								class="glyphicon glyphicon-ok-sign" style="color: green"></span>
+								<span class="glyphicon"><strong>!</strong></span> <span
+								class="glyphicon glyphicon-remove-sign" style="color: red"></span>
+								to indicate the number of tool tag orders for every asset.
+								<ul>
+									<li><span class="glyphicon glyphicon-ok-sign"
+										style="color: green"></span> Tool Tag for this asset has been
+										ordered.</li>
+									<li><span class="glyphicon"><strong>!</strong></span> High
+										volume of tag orders for this asset.</li>
+									<li><span class="glyphicon glyphicon-remove-sign"
+										style="color: red"></span> Tool tag orders disabled for this
+										asset due to excessive tag orders.</li>
+								</ul>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+							<li>Make a Selection
+								<ul>
+									<li>Cause: No asset selected for ordering tag</li>
+									<li>Solution: Select at least one asset for ordering tag</li>
+								</ul>
+							</li>
+							<li>Refer to general application errors (Appendix A) for
+								other possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/tool_tagging4.jpg"> <label>Screen
+						3</label> <br>
+				</div>
+				<div class="content_p">
+					<p>
+						<strong>Title:</strong> Tag Delivery Address
+					</p>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>Checkboxesfor selecting one or multiple assets to edit
+								current tag delivery address.</li>
+							<li>Select All/Select None button to select/deselect all
+								assets at once for edit.</li>
+							<li>View History button to display history (for that
+								session) of edited addresses. Blank when no edits made.</li>
+							<li>Edit selected button to edit the delivery of selected
+								(checked) assets.</li>
+							<li>Confirm button to submit request for Tool Tags to Ford
+								Motor Company.</li>
+							<li>View History to view the last address for each asset
+								prior to the most recent change in address.</li>
+							<li>Tag Size to choose a preferred tag size and material for
+								each asset in the order.</li>
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+							<li>Please complete all mandatory fields.
+								<ul>
+									<li>Cause: One or more mandatory address fields are
+										missing.</li>
+									<li>Solution: Check each of the highlighted boxes and
+										ensure that mandatory fields are complete.</li>
+								</ul>
+							</li>
+							<li>Refer to general application errors (Appendix A) for
+								other possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/tool_tagging5.jpg"> <label>Screen
+						4.1</label> <br>
+				</div>
+
+				<div class="content_p">
+					<p>
+						<strong>Title:</strong> Edit Delivery Address - for individual
+						asset address change
+					</p>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>Mandatory Contact Name field to enter the name of the
+								contact person authorized to receive tool tags from Ford.</li>
+							<li>Mandatory Street, Country, City & State fields for
+								accurate delivery of Tool Tags shipment.</li>
+							<li>Save button to save the address change</li>
+							<li>Cancel button to discard all changes</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+							<li>Contact Name is required | Street is required | Country
+								is required | City is required | State is required
+								<ul>
+									<li>Cause: One of the mandatory address fields is missing.
+										All address fields are mandatory.</li>
+									<li>Solution: Check each address field and ensure that
+										mandatory fields are complete.</li>
+								</ul>
+							</li>
+							<li>Refer to general application errors (Appendix A) for
+								other possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/tool_tagging6.jpg"> <label>Screen
+						4.2</label> <br>
+				</div>
+
+				<div class="content_p">
+					<p>
+						<strong>Title:</strong> Edit Delivery Address – for multiple
+						assets address change
+					</p>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>Contact Name field to enter the name of the contact
+								person authorized to receive tool tags from Ford.</li>
+							<li>Mandatory Street, Country, City, State & Postal Code
+								fields for accurate delivery of Tool Tags shipment.</li>
+							<li>Save button to save the address change for all selected
+								assets.</li>
+							<li>Cancel button to discard all changes.</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+							<li>Contact Name is required | Street is required | Country
+								is required | City is required | State is required
+								<ul>
+									<li>Cause: One or more mandatory address fields are
+										missing.</li>
+									<li>Solution: Check each address field and ensure that
+										mandatory fields are complete</li>
+								</ul>
+							</li>
+							<li>Refer to general application errors (Appendix A) for
+								other possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/tool_tagging7.jpg"> <label>Screen
+						5</label> <br>
+				</div>
+
+				<div class="content_p">
+					<p>
+						<strong>Title:</strong> Order Tool Tag – Success Screen
+					</p>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+							<li>Refer to general application errors (Appendix A) for
+								possible errors on this screen.</li>
+
+
+						</ul>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6"></div>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-sm-6">
+				<h2 id="UploadPage" style="line-height: 25px;">Upload Tool Photo</h2>
+				<img class="img-responsive" src="toolTagApp/assets/images/tool_tagging1.jpg">
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Purpose</strong>
+						</p>
+					</div>
+					<div class="content_h">
+						<p>
+							<i>Provides features to:</i>
+						</p>
+					</div>
+					<ul>
+						<li>Search for tools using Tool Order number (*WIPS Tool
+							Orders only) or Ford Asset Number.</li>
+						<li>Check tool description for the searched tool order number
+							or Ford asset number.</li>
+						<li>Select individual tool for uploading tool photos.</li>
+						<li>Enter camera and click pictures for attachments.</li>
+						<li>Select photos from phone gallery.</li>
+						<li>Confirm uploadof clicked/selected photos to WebQuote.</li>
+					</ul>
+				</div>
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/upload_tool1.jpg"> <label>Screen
+						1</label> <br>
+				</div>
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Title:</strong> Select Asset to upload photos for
+						</p>
+					</div>
+				</div>
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>Search button to initiate search for the entered keyword
+								(Tool Order number or Ford Asset Number)</li>
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+							<li>Please enter Tool Order Number / Please enter Ford Asset
+								Number
+								<ul>
+									<li>Cause: Empty search field.</li>
+									<li>Solution: Enter a valid tool order number/ford asset
+										number to search.</li>
+								</ul>
+							</li>
+
+
+						</ul>
+
+					</div>
+				</div>
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/upload_tool2.jpg"> <label>Screen
+						2</label> <br>
+				</div>
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Title:</strong> Select Asset - Search results
+						</p>
+					</div>
+				</div>
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>Search button to initiate search for the entered keyword
+								(Tool Order number or Ford Asset Number)</li>
+							<li>Assets as search results to select single asset to
+								proceed with photo upload</li>
+							<li>Show more/Show less for expanding/collapsing the asset
+								description</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+
+							<li>Refer to general application errors (Appendix A) for
+								possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/upload_tool3.jpg"> <label>Screen
+						3.1</label> <br>
+				</div>
+				<div class="content_p">
+					<p>
+						<strong>Title:</strong> Asset-specific Upload Home
+					</p>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>1. Take New Photo button to initiatedevice cameraand
+								click pictures of the tool along with the tool tag. These
+								pictures will appear as thumbnails on the same screen. (Refer
+								Screen 3.1 in Upload Tool Photo).</li>
+							<li>2. Select from Gallery button to select pictures from
+								phone’s camera gallery to upload to WebQuote. These pictures
+								will appear as thumbnails on the same screen. (Refer Screen 3.1
+								in Upload Tool Photo).</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+
+							<li>Refer to general application errors (Appendix A) for
+								possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/upload_tool4.jpg"> <label>Screen
+						3.2</label> <br>
+				</div>
+
+				<div class="content_p">
+					<p>
+						<strong>Title:</strong> Asset-specific Upload Home with Selected
+						Photos
+					</p>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>'Bin' button on the top right of each selected photo to
+								delete pictures from the selected photos list.</li>
+							<li>Upload Photos button to upload the selected photos on
+								WebQuote.</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+
+							<li>Refer to general application errors (Appendix A) for
+								possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/upload_tool5.jpg"> <label>Screen
+						4</label> <br>
+				</div>
+
+				<div class="content_p">
+					<p>
+						<strong>Title:</strong> Upload Tool Photo - Success Screen
+					</p>
+				</div>
+
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+							<li>Refer to general application errors (Appendix A) for
+								possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+
+			</div>
+			<div class="col-sm-6"></div>
+		</div>
+	</div>
+	<hr>
+
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-sm-6">
+				<h2 id="ScanPage" style="line-height: 25px;">Scan Tool Tag</h2>
+				<img class="img-responsive" src="toolTagApp/assets/images/tool_tagging1.jpg">
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Purpose</strong>
+						</p>
+					</div>
+					<div class="content_h">
+						<p>
+							<i>Provides features to:</i>
+						</p>
+					</div>
+					<ul>
+						<li>Scan Ford-provided tool tags generated through the Tool
+							Tagging application or WebQuote.</li>
+						<li>Validate the tool tag present on the tool to know the
+							status of the tool and if any actions are required.</li>
+						<li>View additional details about the tool after successful
+							validation of the tag.</li>
+						<li>Rescan a tag.</li>
+					</ul>
+				</div>
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/scan_toolTag1.jpg"> <label>Screen
+						1</label> <br>
+				</div>
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Title:</strong> Scan screen for Tool Tag QR code
+						</p>
+					</div>
+				</div>
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>Scan Ford-provided tool tag QR code. Place the QR code
+								within the highlighted region on the camera screen to scan.</li>
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+							<li>Scan timed out
+								<ul>
+									<li>Cause: Scan screen idle for longer than 15 seconds</li>
+									<li>Solution: Try rescanning with tool tag QR code in the
+										highlighted box on the camera screen</li>
+								</ul>
+							</li>
+							<li>Refer to general application errors (Appendix A) for
+								other possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/scan_toolTag2.jpg"> <label>Screen
+						2</label> <br>
+				</div>
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Title:</strong> Success - Tool Tag Validated Successfully
+						</p>
+					</div>
+				</div>
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>1. Rescan button to navigate back to the QR code
+								scanner.</li>
+							<li>2. Details button to view additional information of the
+								tool. (Refer screen 3 in Scan Tool Tag).</li>
+
+
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+
+							<li>Refer to general application errors (Appendix A) for
+								possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/scan_toolTag3.jpg"> <label>Screen
+						2.2</label> <br>
+				</div>
+				<div class="content_p">
+					<p>
+						<strong>Title:</strong> Error! - Asset Number not found
+					</p>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>Rescan button to navigate back to the QR code scanner.</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+
+							<li>Asset Number not found. Please reference the Tool
+								Tagging application user guide.
+								<ul>
+									<li>Cause: Scanned Ford Asset Number not found in WebQuote
+										database. The tag might be damaged or QR code on the tag is no
+										longer legible for scanning.</li>
+									<li>Solution: Try rescanning with tool tag QR code in the
+										highlighted box on the camera screen.</li>
+								</ul>
+							</li>
+							<li>Refer to general application errors (Appendix A) for
+								other possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/scan_toolTag4.jpg"> <label>Screen
+						2.3</label> <br>
+				</div>
+
+				<div class="content_p">
+					<p>
+						<strong>Title:</strong> Error! - Asset assigned to different
+						supplier
+					</p>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>Rescan button to navigate back to the QR code scanner.</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+
+							<li>Asset Number assigned to different supplier.
+								<ul>
+									<li>Cause: Scanned Ford Asset Number has been assigned to
+										a different supplier.</li>
+									<li>Solution: The tool tag needs to be reordered.</li>
+								</ul>
+							</li>
+							<li>Refer to general application errors  for
+								other possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/scan_toolTag5.jpg"> <label>Screen
+						2.4</label> <br>
+				</div>
+
+				<div class="content_p">
+					<p>
+						<strong>Title:</strong> Asset Moved!
+					</p>
+				</div>
+
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>Rescan button to navigate back to the QR code scanner.</li>
+							<li>Details button to view additional information of the
+								tool. (Refer screen 3 in Scan Tool Tag)</li>
+							<li>Location for this asset does not match Ford records.
+								Please notify the Ford Buyer. - The asset has moved from the
+								location where the tool tag was originally ordered from. Notify
+								the Ford Buyer of this change, if not done already.</li>
+
+						</ul>
+
+					</div>
+				</div>
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+
+							<li>Refer to general application errors (Appendix A)
+								forpossible errors on this screen.</li>
+
+						</ul>
+					</div>
+				</div>
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/scan_toolTag6.jpg"> <label>Screen
+						2.5</label> <br>
+				</div>
+
+				<div class="content_p">
+					<p>
+						<strong>Title:</strong> Action Required!
+					</p>
+				</div>
+
+
+
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>1. Rescan button to navigate back to the QR code
+								scanner.</li>
+							<li>2. Details button to view additional information of the
+								tool. (Refer screen 3 in Scan Tool Tag)</li>
+							<li>3. Asset location not in WebQuote, please provide the
+								address in WebQuote. – The current tool location for the tool is
+								not complete or absent in WebQuote. Please log in to WebQuote
+								from a PC and update the current location for this asset.</li>
+							<li>4. WebQuote URL:<a href="http://www.webquote.ford.com"
+								target="_blank">www.webquote.ford.com</a></li>
+
+						</ul>
+
+					</div>
+				</div>
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+
+							<li>Refer to general application errors (Appendix A)
+								forpossible errors on this screen.</li>
+							</ul>
+					</div>
+				</div>
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/scan_toolTag7.jpg"> <label>Screen
+						2.6</label> <br>
+				</div>
+
+				<div class="content_p">
+					<p>
+						<strong>Title:</strong> Error! – Tool Tag Invalid
+					</p>
+				</div>
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Actions:</strong>
+						</p>
+						<ul>
+							<li>Rescan button to navigate back to the QR code scanner.</li>
+
+						</ul>
+
+					</div>
+				</div>
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+
+							<li>Tool Tag is invalid. Please reorder the tool tag.
+								<ul>
+									<li>Cause: Scanned tool tag is invalid. It might be
+										damaged or no longer legible for scanning.</li>
+									<li>Solution: The tool tag needs to be reordered.</li>
+								</ul>
+							</li>
+							<li>Refer to general application errors (Appendix A) for
+								other possible errors on this screen.</li>
+						</ul>
+
+					</div>
+				</div>
+
+				<div>
+					<img class="img-responsive" src="toolTagApp/assets/images/scan_toolTag8.jpg"> <label>Screen
+						3</label> <br>
+				</div>
+
+				<div class="content_p">
+					<p>
+						<strong>Title:</strong> Asset Details
+					</p>
+				</div>
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+							<li>Close button to navigate back to the App Home page.</li>
+
+						</ul>
+
+					</div>
+				</div>
+				<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Possible Errors:</strong>
+						</p>
+						<ul>
+						<li>Refer to general application errors (Appendix A)
+								for possible errors on this screen.</li>
+
+						</ul>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6"></div>
+		</div>
+	</div>
+	<div class="container-fluid bg-grey">
+		<div class="row">
+
+			<div class="col-sm-8">
+				<h3
+					style="padding-bottom: 0px; margin-bottom: 0px; line-height: 0px;">Appendix
+					A</h3>
+				<br>
+				<h2 id="Error" style="line-height: 25px; margin-top: 0px;">General
+					Application Errors</h2>
+			<div class="divbox">
+					<div class="content_p">
+						<p>
+							<strong>Tool Tagging application is temporarily
+								unavailable</strong>
+						</p>
+					</div>
+					<ul>
+						<li>Cause: The application is facing issues in interacting
+							with the Ford network.</li>
+						<li>Solution:
+							<ul>
+								<li>Try refreshing the page</li>
+								<li>Close the current session and reopen the application in
+									a new session in your browser. Wait for 5-10 minutes before
+									accessing the application again.</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="divbox">
+					<div class="content_h">
+						<p>
+							<strong>Session Expired! Please login again to continue.</strong>
+						</p>
+						<ul>
+							<li>Cause: Application screen idle for too long.</li>
+							<li>Solution: Login again from the Covisint portal</li>
+						</ul>
+
+					</div>
+				</div>
+	</div>
+			<div class="col-sm-4"></div>
+		</div>
+	</div>
+
+</div>
+	<footer role="contentinfo">
+	<p class="text-center">Â© 2018 Ford Motor Company<!--{{'application.footer.copyright' | translate}}--></p>
+</footer>
+
+	<script>
+	
+	
+	$(window).scroll(function() {
+						$(".slideanim").each(function() {
+							var pos = $(this).offset().top;
+
+							var winTop = $(window).scrollTop();
+							if (pos < winTop + 600) {
+								$(this).addClass("slide");
+							}
+						});
+					});
+				
+	</script>
+</body>

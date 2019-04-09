@@ -1,0 +1,52 @@
+<div class="row text-center">
+    <div class="col-xs-12 success" ng-if="qrScanResultController.isSuccess()">
+        <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"><h4 style="color: #3c763d;font-size: 35px;">Success!</h4></span>
+
+    </div>
+     <div class="col-xs-12 failure" ng-if="qrScanResultController.isFailure()">
+        <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"><h4 style="color: #ff0000;font-size: 35px;">Error!</h4></span>
+    </div>
+    <div class="col-xs-12 information" ng-if="qrScanResultController.isAssetMoved()">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"><h4 style="color: #ffa500;font-size: 35px;">Asset Moved!</h4></span>
+    </div>
+    <div class="col-xs-12 information" ng-if="qrScanResultController.isCurrentToolLocationBlank()">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"><h4 style="color: #ffa500;font-size: 35px;">Action Required!</h4></span>
+    </div>
+    <div class="col-xs-12" ng-if="qrScanResultController.isTimeOut()">
+        <span class="glyphicon glyphicon-exclamation-sign information" aria-hidden="true"><h4 style="color: #ffa500;font-size: 35px;">Action Required!</h4></span>
+        <p>{{qrScanResultController.isTimeOut()}}</p>
+    </div>
+</div>
+
+
+    <div class="row text-center">
+        <div class="col-xs-12">
+
+            <dl>
+                <dd>{{qrScanResultController.fordAssetNumber}}</dd>
+            </dl>
+
+            <dl>
+                <dd>{{qrScanResultController.endItemPartNumber}}</dd>
+            </dl>
+
+        </div>
+    </div>
+    
+    <div class="row text-center">
+    	<div class="col-xs-12">
+    		<dl><dt><div style="word-break: break-word;" ng-bind-html="qrScanResultController.message | unsafe"></div></dt></dl>
+    	</div>
+    </div>
+    
+    <div class="row form-actions text-center">
+    	<button id="rescan" type="submit" class="btn btn-primary-default"
+            ng-click="qrScanResultController.rescan()">Rescan
+    	</button>
+
+    	<button id="moreInfo" type="submit" class="btn btn-primary-default"
+            ng-click="qrScanResultController.moreInfo({ assetNumber : qrScanResultController.fordAssetNumber })" ng-if="qrScanResultController.isDetailsAvailable()">Details
+    	</button>
+    </div>
+
+    <div id="map"></div>

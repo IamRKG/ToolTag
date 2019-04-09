@@ -1,0 +1,46 @@
+
+<!-- <div class="form-group">
+                <span ng-show="selectTagSizeController.isSelectOne"
+                      class="label label-danger error-block-danger">
+                    <span>
+                        <span class="glyphicon glyphicon-remove-circle"></span><span
+                            class="label-text">Make a selection</span>
+                        </span>
+                </span>
+</div> -->
+
+<!-- <h5>Please select the tag size for each asset</h5><br/>
+	<h4>Asset</h4>
+<div class="row">
+	<div class="col-xs-6">
+          <div class="form-group">
+              <select ng-model="toolTrackingSheet" class="form-control"
+                      ng-options="toolTrackingSheet as toolTrackingSheet.fordToolingAssetNumber for toolTrackingSheet in selectTagSizeController.toolTrackingSheetList">
+                      <option value="" selected>-Select Asset-</option>
+                      </select>
+          </div>
+    </div>
+</div> -->
+<h4>Tag Size Samples</h4>
+<div class="row">
+	<div class="col-xs-12">
+          <div class="form-group">
+              0.5x1 Inch - Aluminum Foil<br/>
+              <img ng-src="toolTagApp/assets/image/0.5-1_tag.jpg" style="width: 50%;"/>
+          </div>
+          <div class="form-group">
+             2x4 Inch - Metal
+              <img ng-src="toolTagApp/assets/image/2-4_tag.jpg" style="width: 75%;"/>
+          </div>
+    </div>
+</div>
+
+<div class="row form-actions text-center">
+  	<button id="continue" type="submit" class="btn btn-primary-default"
+            ng-click="selectTagSizeController.next()">Continue
+    	</button>
+    <!--  <button id="next" type="submit" class="btn btn-primary-default"
+            ng-click="selectTagSizeController.updateMultipleTagSize(selectTagSizeController.toolTrackingSheetList)">Next
+    	</button> -->
+</div>
+</form>

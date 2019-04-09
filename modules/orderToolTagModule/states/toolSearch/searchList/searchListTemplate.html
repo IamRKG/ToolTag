@@ -1,0 +1,161 @@
+<!-- <div class="row"><a onclick="history.back();" class="pull-left"><i class="glyphicon glyphicon-arrow-left" style="font-size: 20px;"></i></a></div>
+ -->
+<div class="form-group">
+                <span ng-show="searchListController.isSelectOne"
+                      class="label label-danger error-block-danger">
+                    <span>
+                        <span class="glyphicon glyphicon-remove-circle"></span><span
+                            class="label-text">Make a selection</span>
+                        </span>
+                </span>
+</div>
+
+
+<div class="form-group">
+                <span ng-show="toolSearchController.isFormSubmitted && toolSearchController.searchToolOrderForm.toolOrderNumber.$invalid"
+                      class="label label-danger error-block-danger">
+                    <span ng-show="toolSearchController.searchToolOrderForm.toolOrderNumber.$error.required">
+                        <span class="glyphicon glyphicon-remove-circle"></span><span class="label-text">Please enter tool order number</span>
+                    </span>
+                </span>
+
+    <span ng-show="toolSearchController.isFormSubmitted && toolSearchController.searchToolOrderForm.fordAssetNumber.$invalid"
+          class="label label-danger">
+            <span class="glyphicon glyphicon-remove-circle"></span>
+            <span class="label-text">Please enter ford asset number</span>
+    </span>
+</div>
+
+<h2>Tool Order Search</h2>
+<form name="toolSearchController.searchToolOrderForm" role="searchToolOrderForm" class="search well" novalidate>
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <select ng-model="toolSearchController.selectedSearch" class="form-control"
+                        ng-options="order.id as order.name for order in toolSearchController.searchOrderNumber.orderListSearch"
+                        ng-change="toolSearchController.toggleNumber()"></select>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="form-group tool-tag"
+                 ng-class="{'has-error':toolSearchController.isFormSubmitted && toolSearchController.searchToolOrderForm.toolOrderNumber.$invalid || toolSearchController.isFormSubmitted && toolSearchController.searchToolOrderForm.fordAssetNumber.$invalid }">
+                <input ng-if="toolSearchController.selectedSearch == 0" type="text" maxlength="9"
+                       ng-model-options="{ updateOn: 'default'}"
+                       class="form-control"
+                       id="toolOrderNumber" name="toolOrderNumber" placeholder="Enter Tool Order Number"
+                       ng-model="toolSearchController.toolOrderNumber" autofocus required
+                       ng-keypress="toolSearchController.toolSearchEnter($event)">
+                <span class="help-block" ng-if="toolSearchController.selectedSearch == 0">ex:B57764</span>
+                <input ng-if="toolSearchController.selectedSearch == 1" type="text" class="form-control"
+                       ng-model-options="{ updateOn: 'default'}"
+                       id="fordAssetNumber" name="fordAssetNumber" placeholder="Enter Ford Asset Number"
+                       ng-model="toolSearchController.fordAssetNumber" autofocus maxlength="14" required
+                       ng-keypress="toolSearchController.toolSearchEnter($event)">
+                <span class="help-block" ng-if="toolSearchController.selectedSearch == 1">ex:TB57764-00-001</span>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="form-group">
+                <button type="button" id="search" class="btn btn-primary btn-block"
+                        ng-click="toolSearchController.toolSearch()"
+                        ng-keypress="toolSearchController.toolSearchEnter($event)" wc-click-once>
+                    <!--{{'orderToolTag.toolSearch.buttons.search'|translate}}-->
+                    Search
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 bg-info" ng-if="toolSearchController.updateToolTagShippingLocation == 0">No Record Found
+        </div>
+    </div>
+    <div ng-if="toolSearchController.updateToolTagShippingLocation != 0">
+        <div ng-if="toolSearchController.toolSearchResult.length != 0">
+            <div class="tool-summary">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <dl>
+                            <dt><!--{{'orderToolTag.searchList.toolOrderNo' | translate}}-->Tool Order #:</dt>
+                            <dd>{{toolSearchController.toolSearchResult[0].toolOrderNumber}}</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-7">
+                        <dl>
+                            <dt><!--{{'orderToolTag.searchList.endItemPartNumber' | translate}}--> End Item Part #:</dt>
+                            <dd>{{toolSearchController.toolSearchResult[0].endItemPartNumber}}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="button-sticky">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <button type="button" class="btn btn-sm btn-default"
+                                ng-click="searchListController.selectAll()">
+                            <!--{{'orderToolTag.searchList.buttons.selectAll'|translate}}-->
+                            Select All
+                        </button>
+                        <button type="button" class="btn btn-sm btn-default"
+                                ng-click="searchListController.selectNone()">
+                            <!--{{'orderToolTag.searchList.buttons.selectNone'|translate}}-->
+                            Select None
+                        </button>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="text-right">
+                            <!-- <button type="button" class="btn btn-sm btn-primary" ng-click="searchListController.next()"> -->
+                            <button type="button" class="btn btn-sm btn-primary" ng-click="searchListController.orderToolTag()">
+                                <!--{{'orderToolTag.searchList.buttons.next'|translate}}-->
+                                Order Tag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default" ng-repeat="result in toolSearchController.toolSearchResult"
+             ng-model="searchListController.selectedFordToolingAssetNumber">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                	
+                	<tr>
+                		<td><input type="checkbox"
+                           id="{{result.fordToolingAssetNumber}}"
+                           name="{{result.fordToolingAssetNumber}}"
+                           ng-click="searchListController.selectedSearchList(result.fordToolingAssetNumber)" ng-disabled="result.toolTagReOrderCount >= 6"></td>
+                		<td>{{result.fordToolingAssetNumber}}</td>
+                		<td>
+	                		<!-- <a href="javascript:void(0)" >
+		                		<img class="imgsize pull-right"   mypopover="{{searchListController.viewMessage(result.toolTagReOrderCount)}}" ng-src="toolTagApp/assets/image/completeIcon.png" ng-if="result.toolTagReOrderCount > 1 && result.toolTagReOrderCount < 4" />
+		                		<img class="imgsize pull-right"   mypopover="{{searchEditAddressController.viewMessage(result.toolTagReOrderCount)}}" ng-src="toolTagApp/assets/image/alert_icon.png" ng-if="result.toolTagReOrderCount >= 4 &&  result.toolTagReOrderCount < 6"  />
+		                		<img class="imgsize pull-right"   mypopover="{{searchEditAddressController.viewMessage(result.toolTagReOrderCount)}}" ng-src="toolTagApp/assets/image/incomplete.png" ng-if="result.toolTagReOrderCount >= 6"   />
+	                		</a> -->
+	                		<a href="javascript:void(0)"  class="imgsize pull-right"   toolpopover="{{searchListController.viewMessage(result.toolTagReOrderCount)}}" ng-if="result.toolTagReOrderCount >= 1 && result.toolTagReOrderCount < 4">
+		                		<img  ng-src="toolTagApp/assets/image/completeIcon.png" align="right" />
+	                	   </a>
+	                	   <a href="javascript:void(0)"   class="imgsize pull-right" ng-if="result.toolTagReOrderCount >= 4 &&  result.toolTagReOrderCount < 6"  toolpopover="{{searchListController.viewMessage(result.toolTagReOrderCount)}}">
+		                		<img ng-src="toolTagApp/assets/image/alert_icon.png" align="right" />
+	                	</a>
+	                	<a href="javascript:void(0)"   class="imgsize pull-right"    toolpopover="{{searchListController.viewMessage(result.toolTagReOrderCount)}}" ng-if="result.toolTagReOrderCount >= 6">
+		                	<img ng-src="toolTagApp/assets/image/incomplete.png" align="right" />
+	                	</a>
+                		</td>
+                	</tr>
+                	</table>
+    			</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <dl>
+                            <dt><!--{{'orderToolTag.searchList.description' | limitTo:strLimit}}--> Description:</dt>
+                            <dd class="toolingDesc" style="word-break: break-word;">{{result.toolingDesc | limitTo:strLimit }}</dd>
+                       <a class="pull-right" style="color:#4676a2;font-size:11px; " href="javascript:void(0)" ng-click="strLimit == 50? strLimit = result.toolingDesc.length: strLimit = 50;">
+                       <span ng-if="result.toolingDesc.length >= 50" ng-bind="strLimit == 50? 'Show More': 'Show Less'"></span>
+                       </a></dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

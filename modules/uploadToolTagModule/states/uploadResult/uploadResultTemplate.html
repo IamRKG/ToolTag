@@ -1,0 +1,17 @@
+<div class="row text-center">
+    <div class="col-xs-12 success" ng-if="uploadResultController.isSuccess()">
+        <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"><h4 style="color: #3c763d;font-size: 35px;">Success!</h4></span>
+             	
+             		<div style="font-size:16px ; color:black;">{{uploadResultController.message}}</div>
+         
+    </div>
+
+    	
+     <div class="col-xs-12 failure" ng-if="uploadResultController.isFailure()">
+        <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"><h4 style="color: #ff0000;font-size: 35px;">Upload Failed</h4></span>
+    
+    
+    </div>
+    
+</div>
+    

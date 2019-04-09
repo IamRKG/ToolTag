@@ -1,0 +1,57 @@
+
+
+<div class="row ng-scope" ><a onclick="history.back();" class="pull-left"><i class="glyphicon glyphicon-arrow-left" style="font-size: 20px;left:10px;"></i></a></div>
+<h2>Tag Size</h2><br/>
+	<h4>Select tag size for all assets</h4>
+<div class="row">
+	<div class="col-xs-12">
+          <div class="form-group">
+               <table  class="table">
+               		<thead>
+               			<tr on>
+               				<td><input type="radio" value="0.5x1" ng-click="selectTagSizeController.selectAllFor('0.5x1')">0.5x1 Inch - Aluminum Foil<br/>
+               					<img ng-src="toolTagApp/assets/image/0.5-1_tag.jpg" style="width: 75%;"/>
+               				</td>    
+        					<td><input type="radio"  value="2x4" ng-click="selectTagSizeController.selectAllFor('2x4')">2x4 Inch - Metal<br/>
+        					<img ng-src="toolTagApp/assets/image/2-4_tag.jpg" style="width: 75%;"/>
+        					</td>
+               			</tr>
+               		</thead>
+               </table>      
+               
+          </div>
+    </div>
+</div>
+<h4>Select Individual Tag Size</h4>
+<div class="row">
+    
+    <div class="col-xs-12 wc-table">
+        <table ng-table="selectTagSizeController.toolTrackingSheetList" class="table table-striped table-bordered">
+        	<thead>
+        	<tr>
+        		<th title="Ford Asset Number">Ford Asset Number</th>
+        		<th title="Tool Tag Size">Tool Tag Size</th>
+        	</tr>
+        	</thead>
+        	<tbody>
+        	<tr ng-repeat="toolTrackingSheet in selectTagSizeController.toolTrackingSheetList">
+        		<td>{{toolTrackingSheet.fordToolingAssetNumber}}</td>
+        		<td>
+        			<input type="radio" ng-model="toolTrackingSheet.toolTagSize" value="0.5x1">0.5x1 Inch - Metal<br>
+        			<input type="radio" ng-model="toolTrackingSheet.toolTagSize" value="2x4">2x4 Inch - Aluminum Foil
+        		</td>
+        	</tr>
+        	</tbody>
+        </table>     
+    </div>
+</div>
+
+<div class="row form-actions text-center">
+  	<button id="continue" type="submit" class="btn btn-primary-default"
+            ng-click="selectTagSizeController.next()">Continue
+    	</button>
+    <button id="back" type="submit" class="btn btn-primary-default"
+            ng-click="selectTagSizeController.back()">Back
+    	</button>
+</div>
+</form>

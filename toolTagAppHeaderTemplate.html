@@ -1,0 +1,87 @@
+<header role="banner">
+	<div class="app-branding align-middle hidden-xxs row">
+			<div class="col-xs-8 col-sm-9 col-md-6">
+				<div class="media">
+					<button ng-click="toolTagAppController.scrollToContent()" class="btn btn-link nav-global-skip" type="button">{{'application.header.buttons.skipToContent' | translate}}
+
+					</button>
+					<a class="media-left" href="#">
+						<img class="media-object logo" src="webCore/assets/image/Ford-Oval.png" alt="Ford Oval"/>
+					</a>
+					<div class="media-body">
+						<a class="media-heading" href="#">TOOL TAGGING <sup  style="padding: 3px;top: 0.0em !IMPORTANT;font-size: 60%;">   BETA  </sup><!--{{'application.title' | translate}}--></a>
+					</div>
+				</div>
+			</div>
+	</div>
+
+	<div class="navbar navbar-default visible-xxs row">
+		<div class="container-fluid">
+				<div class="media navbar-brand col-xs-9">
+					<a class="pull-left" href="#">
+						<img class="media-object logo" src="webCore/assets/image/Ford-Oval.png" alt="{{'application.header.logo'|translate}}"/>
+					</a>
+					<button ng-click="toolTagAppController.scrollToContent()" class="btn btn-link nav-global-skip">{{'application.header.buttons.skipToContent' | translate}}</button>
+					<div class="media-body">
+					
+					<a class="media-heading" href="#">TOOL TAGGING <sup   style="padding: 3px;top: 0.0em !IMPORTANT;font-size: 60%;">BETA</sup><!--{{'application.title' | translate}}--></a>
+				
+					</div>
+				</div>
+			<!-- 	<div><a class="text " target="_blank" href="#help" style="
+    position:  relative;
+    top: 14px;
+    color:whitesmoke;
+    right: 15px;
+">Help?</a></div> -->
+		</div>
+		
+	</div>
+</header>
+<nav class="navbar navbar-default" role="navigation" style="z-index:1000">
+		<div class="container-fluid">
+			<div class="navbar-header visible-xxs">
+				<button id="toggle-nav-menu-collapse" type="button"
+					class="navbar-toggle collapsed"
+					ng-click="toggleMenuCollpase()" aria-expanded="false">
+					<span class="sr-only ng-binding">application.navigation.toggleTitle</span><span
+						class="icon-bar"></span><span class="icon-bar"></span><span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div uib-collapse="menuCollapsed"
+				id="primary-nav" role="menu">
+				<ul class="nav navbar-nav" style="margin: 0px;">
+					<li role="menuitem"
+						ui-sref-active="active">
+				
+						<a ng-click="toggleMenuCollpase()"
+						ui-sref="home"><span class="home-icon pull-left" aria-hidden="true"></span>Home</a>
+						<ul class="dropdown-menu ng-scope">
+						</ul>
+					</li>
+					<li role="menuitem"
+						ui-sref-active="active">
+						<a ng-click="toggleMenuCollpase()"
+						ui-sref="search-list">	<span class="glyphicon glyphicon-qrcode" style=" padding-right: 10px;" aria-hidden="true"></span>Order</a>
+						<ul class="dropdown-menu ng-scope">
+						</ul>
+					</li>
+					<li role="menuitem"
+						ui-sref-active="active">
+						<a ng-click="toggleMenuCollpase()"
+						ui-sref="choose-asset">	<span class="glyphicon glyphicon-upload" style=" padding-right: 10px;" aria-hidden="true"></span>Upload</a>
+						<ul class="dropdown-menu ng-scope">
+						</ul>
+					</li>
+					<li role="menuitem"
+						ui-sref-active="active">
+						<a ng-click="toggleMenuCollpase()"
+						ui-sref="scan-tool-tag"><span  class="scan-icon pull-left" style="margin-right: 5px; height: 20px; width: 20px; margin-left: -1px;" aria-hidden="true"></span>Scan</a>
+						<ul class="dropdown-menu ng-scope">
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>

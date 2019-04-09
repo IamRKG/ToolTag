@@ -1,0 +1,33 @@
+<!-- <div class="row ng-scope" style=" margin-left: 10px;"><a onclick="history.back();" class="pull-left"><i class="glyphicon glyphicon-arrow-left" style="font-size: 20px;"></i></a></div>
+ -->
+<div class="list-group list-icon row"  style="margin-bottom: 6em;">
+	<h5>Uploading Photos for Asset {{uploadHomeController.fordAssetNumber}}</h5>
+	 <button type="button" class="list-group-item" ng-click="uploadHomeController.takeNewPhoto()"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Take New Photo <span class="glyphicon glyphicon-chevron-right pull-right"></span></button>
+    <button type="button" class="list-group-item" ng-click="uploadHomeController.selectFromGallery()"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Select From Gallery <span class="glyphicon glyphicon-chevron-right pull-right"></span></button>
+
+<div class="col-xs-12">
+  <input type="file" ng-file-model="files" multiple accept="image/*"
+    onchange="angular.element(this).scope().changedFiles(this)" id="uploadFile" class="hidden"/>
+   <input type="file" ng-file-model="files" multiple accept="image/*" capture="camera"
+    onchange="angular.element(this).scope().changedFiles(this)" id="uploadCapturedFile" class="hidden"/>
+   </div>
+   <div class="col-xs-12" ng-show="filesUrls.length > 0">
+         <span style="font-size: 15px; font-weight: bold;">Selected Photos:</span>
+   </div>
+   
+     <div ng-repeat="url in filesUrls" class="col-xs-6" style="padding: 30px;">
+      <img ng-src="{{url}}" style="width: 100%;"/>
+      <span ng-show="hoverEdit" class="animate-show" style="position: absolute; top: 10px; right: 0;">
+                 <a href="javascript:void(0)" ng-click="deletePhoto($index)">
+                   <i class="glyphicon glyphicon-trash"></i>
+                </a>
+        </span>
+    </div>
+    
+    <div class="col-xs-12 text-center" style="margin-bottom: 40px;" ng-show="filesUrls.length > 0">
+         <button class="btn btn-success" ng-click="uploadHomeController.upload()">Upload Photos</button>
+   </div>
+</div>
+<div style="color:#171818;  background-color:#f4f4f4; text-align: left;position:fixed; bottom:3em; font-family:;" times="" new="" roman",="" times,="" serif;"="">
+	* Two photos are required for each tool (close up of tag &amp; photo of tool showing location of the tag.)<br>*Attachment size limit is 10 MB per attachment
+	</div> 

@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            ng-click="viewMessageDescriptionModalInstanceController.reject()">&times;</button>
+    <h1 class="modal-title" tabindex="-1">Tool Tag Order Count Message</h1>
+</div>
+
+<div class="modal-body">
+ <!--   <h4> Asset Number :
+        {{toolLocationModalInstanceController.address.fordToolingAssetNumber}}</h4>-->
+    <form class="well" role="form" name="messageDescription" novalidate>
+        <div class="row">
+            <div class="col-xs-12">
+                <dl>
+                    <dd><span style="word-break: break-word; ">{{viewMessageDescriptionModalInstanceController.messageDescription}}</span></dd>
+                </dl>
+            </div>
+        </div>
+   </form>
+</div>

@@ -1,0 +1,106 @@
+<div class="form-group">
+                <span ng-show="chooseAssetController.isFormSubmitted && chooseAssetController.searchToolOrderForm.toolOrderNumber.$invalid"
+                      class="label label-danger error-block-danger">
+                    <span ng-show="chooseAssetController.searchToolOrderForm.toolOrderNumber.$error.required">
+                        <span class="glyphicon glyphicon-remove-circle"></span><span class="label-text">Please enter tool order number</span>
+                    </span>
+                </span>
+
+    <span ng-show="chooseAssetController.isFormSubmitted && chooseAssetController.searchToolOrderForm.fordAssetNumber.$invalid"
+          class="label label-danger">
+            <span class="glyphicon glyphicon-remove-circle"></span>
+            <span class="label-text">Please enter ford asset number</span>
+    </span>
+</div>
+
+<h2>Select Asset</h2>
+<h4>Please search and select the asset to upload photos</h4>
+<form name="chooseAssetController.searchToolOrderForm" role="searchToolOrderForm" class="search well" novalidate>
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <select ng-model="chooseAssetController.selectedSearch" class="form-control"
+                        ng-options="order.id as order.name for order in chooseAssetController.searchOrderNumber.orderListSearch"
+                        ng-change="chooseAssetController.toggleNumber()"></select>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="form-group tool-tag"
+                 ng-class="{'has-error':chooseAssetController.isFormSubmitted && chooseAssetController.searchToolOrderForm.toolOrderNumber.$invalid || chooseAssetController.isFormSubmitted && chooseAssetController.searchToolOrderForm.fordAssetNumber.$invalid }">
+                <input ng-if="chooseAssetController.selectedSearch == 0" type="text" maxlength="9"
+                       class="form-control"
+                       id="toolOrderNumber" name="toolOrderNumber" placeholder="Enter Tool Order Number"
+                       ng-model="chooseAssetController.toolOrderNumber" autofocus required ng-keypress="chooseAssetController.toolSearchEnter($event)">
+                <span class="help-block" ng-if="chooseAssetController.selectedSearch == 0">ex:B57764</span>
+                <input ng-if="chooseAssetController.selectedSearch == 1" type="text" class="form-control"
+                       id="fordAssetNumber" name="fordAssetNumber" placeholder="Enter Ford Asset Number"
+                       ng-model="chooseAssetController.fordAssetNumber" autofocus maxlength="14" required ng-keypress="chooseAssetController.toolSearchEnter(event)">
+                <span class="help-block" ng-if="chooseAssetController.selectedSearch == 1">ex:TB57764-00-001</span>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="form-group">
+                <button type="button" id="search" class="btn btn-primary btn-block"
+                        ng-click="chooseAssetController.toolSearch()"  ng-keypress="chooseAssetController.toolSearchEnter($event)" wc-click-once>
+                    <!--{{'orderToolTag.toolSearch.buttons.search'|translate}}-->
+                    Search
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 bg-info" ng-if="chooseAssetController.updateToolTagShippingLocation == 0">No Record Found
+        </div>
+    </div>
+    <div ng-if="chooseAssetController.updateToolTagShippingLocation != 0">
+        <div ng-if="chooseAssetController.toolSearchResult.length != 0">
+            <div class="tool-summary">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <dl>
+                            <dt><!--{{'orderToolTag.searchList.toolOrderNo' | translate}}-->Tool Order #:</dt>
+                            <dd>{{chooseAssetController.toolSearchResult[0].toolOrderNumber}}</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-7">
+                        <dl>
+                            <dt><!--{{'orderToolTag.searchList.endItemPartNumber' | translate}}--> End Item Part #:</dt>
+                            <dd>{{chooseAssetController.toolSearchResult[0].endItemPartNumber}}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="panel panel-default" ng-repeat="result in chooseAssetController.toolSearchResult"
+             ng-model="searchListController.selectedFordToolingAssetNumber">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                          <div><a ng-click="chooseAssetController.uploadHomeFor(result.fordToolingAssetNumber, result.fordAssetToolingKey)">{{result.fordToolingAssetNumber}}
+                </a> 
+                    </div> 
+                      <!--   <a href="javascript:void(0)" style="top: -11px important!; "  class="imgsize pull-right" ng-if="result.toolTagAttachmentCount > 0 "  toolpopover="{{chooseAssetController.viewMessage(result.toolTagAttachmentCount)}}">
+		                		<span class="glyphicon glyphicon-upload" aria-hidden="true" align="right"></span>
+	                	</a> --> 
+	                	<a href="javascript:void(0)"   class=" uploadcount pull-right"  ng-if="result.toolTagAttachmentCount > 0 "  toolpopover="{{chooseAssetController.viewMessage(result.toolTagAttachmentCount)}}">
+		                	<img ng-src="toolTagApp/assets/image/uploadcount.png" align="right" /> </a>    
+                    <!--{{'orderToolTag.searchList.fordAssetNo' | translate}}-->
+                    </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <dl>
+                            <dt><!--{{'orderToolTag.searchList.description' | limitTo:strLimit}}--> Description:</dt>
+                            <dd class="toolingDesc" style="word-break: break-word; font-size:10px">{{result.toolingDesc | limitTo:strLimit}}
+                           <a class="pull-right" href="javascript:void(0)" ng-click="strLimit == 50? strLimit = result.toolingDesc.length: strLimit = 50;">
+                       <span ng-if="result.toolingDesc.length >= 50" ng-bind="strLimit == 50? 'Show More': 'Show Less'"></span>
+                       </a>
+                       </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

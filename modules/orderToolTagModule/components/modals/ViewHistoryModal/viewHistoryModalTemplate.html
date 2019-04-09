@@ -1,0 +1,46 @@
+<div class="modal-header">
+    <button type="button" ng-click="viewHistoryModalInstanceController.reject();" class="close" data-dismiss="modal"
+            aria-hidden="true">&times;</button>
+    <h1 class="modal-title">History</h1>
+</div>
+<div class="modal-body">
+<div class="row well-sm">
+    <div class="col-xs-12 bg-info">
+
+        <dl>
+            <dt><h4>Current Address:</h4></dt>
+        </dl>
+        <dl>
+            <dd>{{viewHistoryModalInstanceController.currentAddress.toolTagShippingLocation.name}}</dd>
+            <dd>{{viewHistoryModalInstanceController.currentAddress.toolTagShippingLocation.street}}</dd>
+            <dd>{{viewHistoryModalInstanceController.currentAddress.toolTagShippingLocation.city}}</dd>
+            <dd>{{viewHistoryModalInstanceController.currentAddress.toolTagShippingLocation.country}}</dd>
+            <dd>{{viewHistoryModalInstanceController.currentAddress.toolTagShippingLocation.state}}</dd>
+            <dd>{{viewHistoryModalInstanceController.currentAddress.toolTagShippingLocation.postalCode}}</dd>
+            </dd>
+        </dl>
+    </div>
+</div>
+<div class="row well-sm">
+    <div class="col-xs-12 bg-info">
+        <dl>
+            <dt><h4>Previous Address:</h4></dt>
+        </dl>
+        <dl>
+            <dd>{{viewHistoryModalInstanceController.previousAddress.toolTagShippingLocation.name}}</dd>
+            <dd>{{viewHistoryModalInstanceController.previousAddress.toolTagShippingLocation.street}}</dd>
+            <dd>{{viewHistoryModalInstanceController.previousAddress.toolTagShippingLocation.city}}</dd>
+            <dd>{{viewHistoryModalInstanceController.previousAddress.toolTagShippingLocation.country}}</dd>
+            <dd>{{viewHistoryModalInstanceController.previousAddress.toolTagShippingLocation.state}}</dd>
+            <dd>{{viewHistoryModalInstanceController.previousAddress.toolTagShippingLocation.postalCode}}</dd>
+            </dd>
+        </dl>
+</div>
+</div>
+
+<div class="row form-actions text-center">
+    <button id="modal-cancel" type="button" class="btn btn-secondary"
+            ng-click="viewHistoryModalInstanceController.reject()">Close
+    </button>
+</div>
+</div>

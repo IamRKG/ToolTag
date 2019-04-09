@@ -1,0 +1,354 @@
+body{
+    font-size: 1.2em;
+}
+h3{
+    font-size: 1.2rem !important;
+}
+header{
+    margin: 0;
+    padding: 0.2em;
+    background: #0a3c5c;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0px;
+    z-index: 100;
+}
+
+.popover-content{
+color : black !important;
+}
+
+.tagdeliveryaddress {
+    width:45%;
+    font-size: 14px;
+    float:left;
+    padding: 10px;
+}
+.popover-content a {
+    color: blue;
+}
+
+
+.seltagsize
+   {
+       padding-right: 0px;
+    padding-top: 30px;
+    padding-left: 0px;
+    margin: 0px;
+    font-size: 10px;
+    margin-left: -11px;
+    }
+
+.imgsize{
+
+	width:25px;
+	position: relative;
+    bottom: 4px;
+}
+#loading-indicator span, .wc-table-loading-indicator span {
+   
+    bottom: -7px !important;
+	}
+
+#loading-indicator, .wc-table-loading-indicator {
+  
+    height: 140px !important;
+    width: 200px !important;
+    top: 5% !important;
+}
+
+
+.navbar-default .media-body a{
+    color: #fff;
+}
+.navbar-default .navbar-toggle{
+    top: -59px;
+    z-index: 500;
+}
+
+.app-branding .media-heading{
+    color: #fff;
+}
+
+#footer footer{
+    padding-top: 0.8em;
+    z-index: 100;
+}
+#footer{
+    height: 3em;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+}
+#content{
+    padding: 1em;
+}
+
+
+.list-group{
+    padding: 0px 30px;
+    margin: 0;
+}
+button.list-group-item{
+    padding: 15px 15px;
+    margin-bottom:20px;
+    box-shadow: 0px 5px 2px #e7e7e7;
+    border-radius:5px !important;
+    background: #1896d0;
+    background: -moz-linear-gradient(top, #1896d0 0%, #1890cc 10%, #127cb8 33%, #107ab4 35%, #085492 69%, #044c87 78%, #054b89 79%, #024683 85%, #003c7a 100%);
+    background: -webkit-linear-gradient(top, #1896d0 0%,#1890cc 10%,#127cb8 33%,#107ab4 35%,#085492 69%,#044c87 78%,#054b89 79%,#024683 85%,#003c7a 100%);
+    background: linear-gradient(to bottom, #1896d0 0%,#1890cc 10%,#127cb8 33%,#107ab4 35%,#085492 69%,#044c87 78%,#054b89 79%,#024683 85%,#003c7a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1896d0', endColorstr='#003c7a',GradientType=0 );
+    color: #fff;
+}
+
+button.list-group-item:hover{
+    color: #fff;
+}
+
+button.list-group-item:active{
+    background: #003c7a;
+    color: #fff !important;
+    background: -moz-linear-gradient(top, #003c7a 0%, #034784 18%, #1485c1 76%, #1794ce 94%, #1896d0 100%);
+    background: -webkit-linear-gradient(top, #003c7a 0%,#034784 18%,#1485c1 76%,#1794ce 94%,#1896d0 100%);
+    background: linear-gradient(to bottom, #003c7a 0%,#034784 18%,#1485c1 76%,#1794ce 94%,#1896d0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003c7a', endColorstr='#1896d0',GradientType=0 );
+}
+.list-icon .glyphicon{
+    font-size: 1.3em;
+    top:3px;
+    margin-right: 5px;
+}
+.panel-default>.panel-heading{
+    color:#fff;
+}
+
+.panel .panel-heading {
+    background-color: #285e8e;
+}
+
+.panel{
+    border: 0;
+    -webkit-box-shadow: 0px 3px 6px 3px rgba(40,94,142,1);
+    -moz-box-shadow: 0px 3px 6px 3px rgba(40,94,142,1);
+    box-shadow: 0px 3px 6px 3px rgba(40,94,142,1);
+}
+
+.panel a{
+    color: #fff;
+}
+
+.panel dd{
+    font-size:0.8em;
+}
+
+.alert-danger{
+    margin-top: 5px;
+}
+.alert-danger .glyphicon{
+    font-size: 1.5em;
+}
+.search .col-xs-6{
+    padding: 10px;
+}
+
+.btn-primary{
+    background-color:#337ab7;
+}
+
+.button-sticky{
+    position: sticky;
+    top:-1px;
+    z-index: 1;
+    padding: 5px 5px 1px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background: #8eabc4;
+}
+
+.tool-summary{
+    background: #ECECEC;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.panel-title input[type=checkbox], input[type=radio]{
+    vertical-align: bottom;
+    margin-right: 5px;
+}
+
+.form-group input[type=checkbox]{
+    vertical-align:text-top;
+}
+
+.success{
+    font-size: 100px;
+    color: #3c763d;
+}
+
+.information{
+    font-size: 100px;
+    color: #ffa500;
+}
+
+.failure{
+    font-size: 100px;
+	color: #ff0000;
+}
+
+.success h4{
+    font-size: 40px;
+    color: #3c763d;
+}
+
+.help-block{
+    color: #737373 !important;
+}
+
+.error-block-danger{
+    width: 100%;
+    text-align: left;
+    padding: 0.8em !important;
+}
+
+select.form-control{
+    width: 100%;
+}
+
+.tool-tag input{
+    font-size: 12.5px;
+}
+
+.ui-select-container .btn, .ui-select-bootstrap .ui-select-choices-row>span{
+    white-space: normal;
+}
+
+.bg-info{
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+p.bg-info:last-child{
+    border-radius: 5px;
+    margin: 0;
+}
+.tag-well{
+    min-height: 20px;
+    padding: 15px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+
+.viewHistory{
+    color:#00adef !important;
+}
+
+.navbar-fixed-bottom{
+    bottom: 40px;
+    background: #fff;
+    position: sticky;
+}
+
+.form-actions{
+    background: #8eabc4;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.form-actions button:nth-child(2){
+    margin-right:0;
+}
+
+.toolingDesc a{
+    color: #336ca2;
+    font-weight: bold;
+}
+
+.panel-error{
+    box-shadow: 0px 3px 6px 3px rgba(142, 40, 73, 0.58)
+}
+
+.sidenav {
+    height: 20%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+    right: 0;
+    background-color: #0a3c5c;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 10px;
+    color : whitesmoke;
+}
+
+.sidenav a {
+    padding: 7px 6px 0px 15px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: -20px;
+    right: -3px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.Camera .CameraRealtime {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.home-icon{
+    content: url(../image/home-icon.png);
+margin-right: 5px;
+    height: 21px;
+    width: 23px;
+   margin-left: -4px;
+}
+.scan-icon{
+    content: url(../image/scan-ico.png);
+
+}
+.popover-content a{
+color:blue !important;
+}
+.assettable{
+    overflow: scroll;
+    border: 1px solid;
+    position: absolute;
+    width: 192px;
+    left: 25%;
+
+    margin-bottom: 56px;
+}
+.uploadcount{
+top: -19px;
+    position: relative;
+    height: 24px;
+    width: 24px;}

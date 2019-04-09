@@ -1,0 +1,28 @@
+<div class="row success text-center">
+    <div class="col-xs-12">
+        <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"><h4>Success!</h4></span>
+
+    </div>
+    <div class="col-xs-12">
+
+    </div>
+</div>
+
+<div class="row text-center">
+    <div class="col-xs-12">
+        Thank you!
+        Your request has been processed.
+    </div>
+    <div class="col-xs-12">
+        Your tool tag will reach you soon!
+    </div>
+</div>
+<div style="padding: 11px;"></div>
+<div style="text-align: center;    margin-bottom: 25px;" ng-if="confirmController.isListShow" >
+<h1>High Volume of Reorders</h1> You have ordered a total of 4 or more tool tags for the asset numbers below. If you are facing issues with your tags, please submit a WebQuote ticket at the <a href="http://www.request.ford.com"> Helpdesk</a>
+<h3 style=" padding-top: 5px;">Asset Numbers:</h3>
+<div class="assettable">
+<div style="border:1px soild black;" id="ToolAssetDisplayTable"  ng-repeat="result in confirmController.searchList"  ng-if="result.toolTagReOrderCount >= 4 &&  result.toolTagReOrderCount < 7" align="center" >{{result.fordToolingAssetNumber}}
+</div>
+</div>
+</div>

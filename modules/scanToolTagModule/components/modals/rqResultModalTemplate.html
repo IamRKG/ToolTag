@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            ng-click="rqResultModalInstanceController.reject()">&times;</button>
+    <h1 class="modal-title" tabindex="-1">QR Code Found</h1>
+</div>
+
+<div class="modal-body">
+    <form class="well" role="form" name="componentPartNumbers" novalidate>
+        <div class="col-xs-12">
+            <dl>
+                <dd>{{rqResultModalInstanceController.fordAssetNumber}}</dd>
+            </dl>
+            <dl>
+                <dd>{{rqResultModalInstanceController.endItemPartNumber}}</dd>
+            </dl>
+        </div>
+    </form>
+</div>

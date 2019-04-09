@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            ng-click="viewComponentPartsModalInstanceController.reject()">&times;</button>
+    <h1 class="modal-title" tabindex="-1">Component Part Numbers</h1>
+</div>
+
+<div class="modal-body">
+ <!--   <h4> Asset Number :
+        {{toolLocationModalInstanceController.address.fordToolingAssetNumber}}</h4>-->
+    <form class="well" role="form" name="componentPartNumbers" novalidate>
+        <div class="row">
+            <div class="col-xs-12">
+                <dl>
+                    <dd ng-repeat="componentPartNumber in viewComponentPartsModalInstanceController.componentPartNumbers">{{componentPartNumber}}</dd>
+                </dl>
+            </div>
+        </div>
+   </form>
+</div>

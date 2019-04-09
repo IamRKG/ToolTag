@@ -1,0 +1,94 @@
+
+<div class="col-xs-12 text-center">
+	<h2>Asset Details</h2>
+
+</div>
+<div class="row">
+	<div class="tool-summary  text-left">
+	
+		<div class="row">
+			<div class="col-xs-6">
+				<dl>
+					<dt class="summary-label">Site Code:</dt>
+					<!-- <dd>
+						<select ng-model="viewMoreInfo" 
+							ng-options="viewMoreInfo.supplierSiteCode for viewMoreInfo in viewMoreInformationController.viewMoreInformationResult"
+							ng-init="viewMoreInfo=viewMoreInformationController.viewMoreInformationResult[0]">
+							<option value="" selected>Select Site Code</option>
+						</select>
+					</dd> -->
+					<dd>{{viewMoreInformationController.detailedAssetInformation.supplierSiteCode}}</dd>
+				</dl>
+			</div>
+			<div class="col-xs-6">
+				<dl>
+					<dt>Ford Asset Number:</dt>
+					<dd>{{viewMoreInformationController.detailedAssetInformation.fordToolingAssetNumber}}</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				<dl>
+					<dt>Tool Order Number:</dt>
+					<dd>{{viewMoreInformationController.detailedAssetInformation.toolOrderNumber}}</dd>
+				</dl>
+			</div>
+			<div class="col-xs-6">
+				<dl>
+					<dt>End Item Part Number:</dt>
+					<dd>{{viewMoreInformationController.detailedAssetInformation.endItemPartNumber}}</dd>
+				</dl>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-6">
+				<dl>
+					<dt>Dimensions:</dt>
+				</dl>
+				<dl>Length:
+					{{viewMoreInformationController.detailedAssetInformation.toolLength}}
+					
+					{{viewMoreInformationController.detailedAssetInformation.lengthUnitOfMeasure}}
+				</dl>
+				<dl>Width:
+					{{viewMoreInformationController.detailedAssetInformation.toolWidth}}
+					
+					{{viewMoreInformationController.detailedAssetInformation.widthUnitOfMeasure}}
+				</dl>
+				<dl>Height:
+					{{viewMoreInformationController.detailedAssetInformation.toolDepth}}
+					
+					{{viewMoreInformationController.detailedAssetInformation.depthUnitOfMeasure}}
+				</dl>
+			</div>
+			<div class="col-xs-6">
+				<!-- <dl> -->
+					<!-- <dt> --><b>Weight:</b><!-- </dt> -->
+				<!-- </dl>
+				<dl> -->
+				{{viewMoreInformationController.detailedAssetInformation.toolWeight}}
+				
+				{{viewMoreInformationController.detailedAssetInformation.weightUnitOfMeasure}}
+				<!-- </dl> -->
+			</div>
+		</div>
+		<div class="row text-center">
+			<div class="col-xs-10">
+				<dl>
+					<dt class="summary-label">Component Part Numbers:</dt>
+					<div ng-if="viewMoreInformationController.detailedAssetInformation.componentPartNumbers.length == 0">Not Available</div>
+					<div
+						ng-repeat="partNumber in viewMoreInformationController.detailedAssetInformation.componentPartNumbers">
+						<dd>{{partNumber}}</dd>
+					</div>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<div class="row text-center">
+		<button id="moreInfo" type="submit" class="btn btn-primary-default"
+			ng-click="viewMoreInformationController.home()">Close</button>
+	</div>
+</div>

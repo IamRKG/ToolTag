@@ -1,0 +1,6 @@
+[
+	{"label": "Home", "state":"home", "protected":""},
+	{"label": "Order", "state":"search-list", "protected":""},
+	{"label": "Upload", "state":"choose-asset", "protected":""},
+	{"label": "Scan", "state":"scan-tool-tag", "protected":""}
+]
